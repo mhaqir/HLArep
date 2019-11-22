@@ -4,7 +4,7 @@
 import sys
 # from collections import Counter, OrderedDict
 # from operator import itemgetter
-import numpy as 
+import numpy as np
 import matplotlib.pyplot as plot
 
 
