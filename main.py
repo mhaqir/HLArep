@@ -5,7 +5,7 @@ import sys
 # from collections import Counter, OrderedDict
 # from operator import itemgetter
 import numpy as np
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 
 
@@ -47,7 +47,6 @@ def pairFinder(pos_list1, pos_list2, chrom):
 
 if __name__ == '__main__':
 	filename = sys.argv[1]
-
 	bed = readBedFile(filename)
 	pos1 = [int(item[1]) for item in bed]
 	pos2 = [int(item[2]) for item in bed]
@@ -62,7 +61,7 @@ if __name__ == '__main__':
 	lengths = [item[1] - item[0] for item in pairs]
 	fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = (32, 32))
 	n, bins, patches = ax.hist(lengths)
-	fig.savefig( 'plots/{}.png'.format(filename))   
+	fig.savefig( 'plots/{}.png'.format('3784'))   
 	plt.close(fig)
 
 
