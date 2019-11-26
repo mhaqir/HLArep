@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-THRESHOLD = 5
+THRESHOLD = 20
 
 def readBedFile(filename):
 	bed = []
@@ -63,19 +63,22 @@ if __name__ == '__main__':
 	# print(chrom)
 	pairs = pairFinder(pos1, pos2, chrom)
 	# print(pairs)
-	lengths = [item[1] - item[0] for item in pairs]
-	fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = (32, 32))
-	n, bins, patches = ax.hist(lengths)
-	fig.savefig( 'plots/{}.png'.format('3784_hist'))   
-	plt.close(fig)
+	with open('3784_out_20.txt', 'w') as f:
+		for pair in pairs:
+			f.writelines(str(pair[0]) + '\t' + str(pair[1]) + '\n')
+	# lengths = [item[1] - item[0] for item in pairs]
+	# fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = (32, 32))
+	# n, bins, patches = ax.hist(lengths)
+	# fig.savefig( 'plots/{}.png'.format('3784_hist'))   
+	# plt.close(fig)
 
-	sns.set()
-	fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = (32, 32))
-	sns.distplot(lengths, ax = ax, bins = 100)   # , bins = np.arange(0, 40000, 2000), norm_hist = True
-	plt.xlim(0, 100000)
-	# plt.xticks(np.arange(0, 40000, 2000))
-	fig.savefig( 'plots/{}.png'.format('3784_dist')) 
-	plt.close(fig)	
+	# sns.set()
+	# fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = (32, 32))
+	# sns.distplot(lengths, ax = ax, bins = 100)   # , bins = np.arange(0, 40000, 2000), norm_hist = True
+	# plt.xlim(0, 100000)
+	# # plt.xticks(np.arange(0, 40000, 2000))
+	# fig.savefig( 'plots/{}.png'.format('3784_dist')) 
+	# plt.close(fig)	
 
 
 
