@@ -10,11 +10,8 @@ import numpy as np
 def fastaReader(filename):
 	f = open(filename, 'r')
 	hdrs = (h[1] for h in groupby(f, lambda line: line[0] == '>'))
-	# print(hdrs[0:5])
 	for hdr in hdrs:
 		hdrStr = hdr.__next__()[1:].strip()
-		# print(hdrStr)
-		# print("done")
 		seq = ''.join(s.strip() for s in hdrs.__next__())
 		yield hdrStr, seq
 

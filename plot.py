@@ -17,13 +17,7 @@ if __name__ == '__main__':
 	for line in lines:
 		pairs.append(tuple(line.rstrip().split('\t')))
 
-	# print(pairs[0:10])
-	# print(len(pairs))
-	# print(len(set(pairs)))
-	# p1 = [item[0] for item in pairs]
-	# p2 = [item[1] for item in pairs]
-	# print("p1:", len(set(p1)))
-	# print("p2:", len(set(p2)))
+
 	lengths = [int(item[1]) - int(item[0]) for item in pairs]
 	fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = (32, 32))
 	n, bins, patches = ax.hist(lengths)
